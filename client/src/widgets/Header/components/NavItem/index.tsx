@@ -24,13 +24,16 @@ export const NavItem: React.FC<INavItemProps> = ({
   const hasDropdown = !!content?.length;
   const dropdownId = `dropdown-menu-${name.replace(/\s/g, "-").toLowerCase()}`;
   const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLDivElement | null>(null);
   const location = useLocation();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
         dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
+        !dropdownRef.current.contains(event.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node)
       ) {
         onToggle?.();
       }
@@ -39,7 +42,9 @@ export const NavItem: React.FC<INavItemProps> = ({
     const handleFocusOut = (event: FocusEvent) => {
       if (
         dropdownRef.current &&
-        !dropdownRef.current.contains(event.relatedTarget as Node)
+        !dropdownRef.current.contains(event.relatedTarget as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.relatedTarget as Node)
       ) {
         onToggle?.();
       }
@@ -82,14 +87,16 @@ export const NavItem: React.FC<INavItemProps> = ({
         <>
           <div className={styles.navItem__dropdownRow}>
             {renderLabel(name, href)}
-            <ArrowButton
-              size={isMobile ? "1.5rem" : "1rem"}
-              direction={isOpen ? "up" : "down"}
-              onClick={onToggle}
-              classNameBtn={styles.navItem__dropdownBtn}
-              aria-expanded={isOpen}
-              aria-controls={dropdownId}
-            />
+            <div ref={buttonRef}>
+              <ArrowButton
+                size={isMobile ? "1.5rem" : "1rem"}
+                direction={isOpen ? "up" : "down"}
+                onClick={onToggle}
+                classNameBtn={styles.navItem__dropdownBtn}
+                aria-expanded={isOpen}
+                aria-controls={dropdownId}
+              />
+            </div>
           </div>
 
           <AnimatePresence initial={false}>
