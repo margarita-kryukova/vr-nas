@@ -1,0 +1,26 @@
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(24, 24, 27, 1);
+  background-image: url("../../../public/images/bg.svg");
+  background-position-x: right;
+  background-position-y: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+    background-size: 735px;
+  }
+}
+
+.main {
+  padding-top: 154px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 114px;
+  }
+}

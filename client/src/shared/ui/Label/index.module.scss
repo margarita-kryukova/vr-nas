@@ -1,0 +1,14 @@
+.label {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-size: var(--caption1-size);
+  font-weight: var(--caption1-weight);
+  line-height: var(--caption1-line-height);
+  letter-spacing: var(--caption1-letter-spacing);
+  text-transform: uppercase;
+  background: var(--Main-Colors-Linear);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

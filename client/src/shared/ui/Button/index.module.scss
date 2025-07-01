@@ -1,0 +1,114 @@
+.wrapper {
+  position: relative;
+}
+
+.button {
+  width: 100%;
+  height: 50px;
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 18px;
+  font-family: var(--font-family-main);
+  text-decoration: none;
+
+  &:focus-visible:not(:disabled) {
+    outline: none;
+  }
+
+  &_bold {
+    font-size: var(--button1-size);
+    font-weight: var(--button1-weight);
+    line-height: var(--button1-line-height);
+    letter-spacing: var(--button1-letter-spacing);
+    text-transform: uppercase;
+  }
+
+  &_light {
+    font-size: var(--button2-size);
+    font-weight: var(--button2-weight);
+    line-height: var(--button2-line-height);
+  }
+
+  &_primary {
+    border: 1px solid;
+    border-image: var(--Main-Colors-Linear, #0cbaf1) 1;
+    background: var(--Main-Colors-Linear);
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--Main-Colors-Linear);
+      filter: blur(20px);
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 0;
+    }
+    &:hover,
+    &:focus-visible {
+      &:not(:disabled)::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  &_secondary {
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    border: 1px solid;
+    border-image: var(--Main-Colors-Linear, #0cbaf1) 1;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--Main-Colors-Linear);
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 0;
+    }
+    &:hover,
+    &:focus-visible {
+      &:not(:disabled)::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  &_tonal {
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid;
+    border-image: var(--Main-Colors-Linear, #0cbaf1) 1;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--Main-Colors-Linear);
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 0;
+    }
+    &:hover,
+    &:focus-visible {
+      &:not(:disabled)::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__text {
+    position: relative;
+    z-index: 1;
+    color: var(--Greyscale-White, #fff);
+    font-style: normal;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+}

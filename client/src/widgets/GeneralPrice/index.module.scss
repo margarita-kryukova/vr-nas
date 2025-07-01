@@ -1,0 +1,151 @@
+@use "sass:math";
+$mobile: math.div(100vw, 430);
+
+.general-price {
+  position: relative;
+  width: 100%;
+  max-width: var(--width);
+  margin: 0 auto var(--margin-bootom);
+  padding: 0 var(--padding);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+  @media screen and (min-width: 768px) {
+    gap: 40px;
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    @media screen and (min-width: 768px) {
+      max-width: 850px;
+    }
+  }
+
+  &__label {
+    margin-bottom: 12px;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    text-align: left;
+  }
+
+  &__desc {
+    margin: 0;
+    color: var(--Greyscale-Grey-2);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 28px;
+    @media screen and (min-width: 768px) {
+      max-width: 625px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    border: 1px solid;
+    background: linear-gradient(#252532, #252532) 50% 50% / calc(100% - 2px)
+        calc(100% - 2px) no-repeat,
+      linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0, transparent 100%);
+    padding: 32px 22px 0;
+    display: grid;
+    gap: 37px;
+    z-index: 1;
+    @media screen and (min-width: 1024px) {
+      grid-template-columns: 65.5% 33.5%;
+      gap: 1%;
+      padding: 55px 0 55px 42px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -10%;
+      right: 10%;
+      width: 30%;
+      height: 50%;
+      background: linear-gradient(
+        98.54deg,
+        rgba(28, 196, 249, 0.8) 0.72%,
+        rgba(254, 105, 254, 0.8) 90.69%
+      );
+      filter: blur(105px);
+      border-radius: 88% 12% 88% 12% / 20% 37% 63% 80%;
+      transform: rotate(60deg);
+
+      @media screen and (min-width: 1024px) {
+        right: 15%;
+        width: 20%;
+        height: 100%;
+        transform: rotate(50deg);
+      }
+    }
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    overflow: hidden;
+    @media screen and (min-width: 1024px) {
+      border-bottom: none;
+      border-right: 1px solid rgba(255, 255, 255, 0.35);
+      padding-bottom: 0;
+      padding-right: 16%;
+      align-self: start;
+    }
+  }
+
+  &__image {
+    position: relative;
+    width: 65%;
+    right: -35.5%;
+    bottom: 0;
+    @media screen and (min-width: 768px) {
+      width: 40%;
+      right: -60%;
+    }
+
+    @media screen and (min-width: 1024px) {
+      position: absolute;
+      width: 93%;
+      right: 0;
+    }
+
+    &-wrapper {
+      position: relative;
+      width: calc(100% + 44px);
+      margin: 0 -22px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      overflow: hidden;
+      @media screen and (min-width: 1024px) {
+        width: 100%;
+        min-height: 532px;
+        margin: 0 0 -55px;
+      }
+    }
+  }
+
+  &__price-card {
+    position: absolute;
+    left: 4%;
+    bottom: -92px;
+    width: 80%;
+    max-width: 320px;
+    @media screen and (min-width: 1024px) {
+      width: 27%;
+      left: auto;
+      right: 14.3%;
+      bottom: 0;
+      transform: translateY(23%);
+    }
+  }
+}

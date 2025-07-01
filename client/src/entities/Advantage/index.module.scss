@@ -1,0 +1,28 @@
+.advantage {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style: none;
+
+  &__icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 42px;
+  }
+
+  &__title {
+    margin: 0 0 12px;
+    color: var(--Greyscale-White);
+    font-size: var(--heading3-size);
+    font-weight: var(--heading3-weight);
+    line-height: var(--heading3-line-height);
+  }
+
+  &__desc {
+    margin: 0;
+    color: var(--Greyscale-Grey-1);
+    font-size: var(--body2-size);
+    font-weight: var(--body2-weight);
+    line-height: var(--body2-line-height);
+  }
+}

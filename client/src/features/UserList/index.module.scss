@@ -1,0 +1,21 @@
+.users {
+  display: grid;
+
+  &_all {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+  }
+
+  &_preview {
+    gap: 24px;
+    @media screen and (min-width: 768px) {
+      gap: 8px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (min-width: 1024px) {
+      gap: 8px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

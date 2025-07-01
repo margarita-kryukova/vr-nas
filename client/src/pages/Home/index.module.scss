@@ -1,0 +1,15 @@
+.page {
+  &__services {
+    &::before {
+      @media screen and (min-width: 768px) {
+        content: url("/public/images/glare.svg");
+        position: absolute;
+        top: -10%;
+        right: -10%;
+        z-index: 1;
+        scale: 1.5;
+        filter: blur(55px);
+      }
+    }
+  }
+}

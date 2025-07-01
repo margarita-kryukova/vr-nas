@@ -1,0 +1,9 @@
+@function linearScaling($size_min, $width_min, $size_max, $width_max) {
+  $width_min-px: $width_min + px;
+  $size_min-px: $size_min + px;
+  @return calc(
+    $size_min-px + ($size_max - $size_min) *
+      ((100vw - $width_min-px) / ($width_max - $width_min))
+  );
+}
+// Функция вычисляет пропорциональный размер, который изменяется от size_min до size_max при изменении ширины экрана от width_min до width_max

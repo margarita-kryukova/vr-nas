@@ -1,0 +1,58 @@
+.item {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  transition: 0.3s ease-in-out;
+  border-radius: 50%;
+  overflow: hidden;
+
+  .item__icon {
+    z-index: 5;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--Main-Colors-Linear, #0cbaf1);
+
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  &:hover,
+  &:focus-visible {
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &_transparent {
+    .item__icon {
+      color: rgba($color: #fff, $alpha: 0.05);
+      transition: all 0.3s;
+    }
+  }
+
+  &_color {
+    .item__icon {
+      color: #18181b;
+    }
+
+    &:hover,
+    &:focus-visible {
+      .item__icon {
+        color: transparent;
+        transition: all 0.3s;
+      }
+    }
+  }
+}

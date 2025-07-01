@@ -1,0 +1,55 @@
+.hero {
+  position: relative;
+  width: 100%;
+  max-width: var(--width);
+  margin: 0 auto var(--margin-bootom);
+  padding: 0 var(--padding) 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  @media screen and (min-width: 768px) {
+    padding-top: 80px;
+  }
+
+  &::before {
+    content: url("/public/images/glare.svg");
+    position: absolute;
+    top: 32%;
+    transform: translateY(-50%);
+    filter: blur(55px);
+    z-index: 1;
+    @media screen and (min-width: 768px) {
+      scale: 1.4;
+      top: 80%;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: var(--padding);
+    width: calc(100% - 2 * var(--padding));
+    height: 1px;
+    background: var(--Main-Colors-Linear);
+    z-index: 5;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 58px;
+    letter-spacing: -0.2px;
+    color: var(--Greyscale-White);
+    z-index: 5;
+
+    @media screen and (min-width: 768px) {
+      font-size: 64px;
+      font-weight: 600;
+      line-height: 83px;
+      letter-spacing: -0.32px;
+    }
+  }
+}

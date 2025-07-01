@@ -1,0 +1,203 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(37, 37, 50, 0.7);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+    opacity: 0;
+  }
+
+  &_scrolled {
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &__container {
+    width: 100%;
+    max-width: var(--width);
+    margin: 0 auto;
+    padding: 24px var(--padding);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    @media screen and (min-width: 1280px) {
+      padding: 32px var(--padding);
+    }
+  }
+
+  &__button {
+    position: relative;
+    display: flex;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid;
+    border-image: var(--Main-Colors-Linear, #0cbaf1) 1;
+    z-index: 50;
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+
+    &:focus-visible {
+      outline: none;
+      background: var(--Main-Colors-Linear);
+    }
+
+    &-icon {
+      position: absolute;
+      right: 7px;
+      height: 0.125rem;
+      background-color: var(--Greyscale-White);
+      animation-duration: 0.3s;
+      animation-fill-mode: forwards;
+
+      &:first-child {
+        top: 0.5rem;
+        animation-name: top-reverse;
+        transform-origin: 93%;
+      }
+
+      &:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+        animation-name: middle-reverse;
+      }
+
+      &:last-child {
+        bottom: 0.5rem;
+        animation-name: bottom-reverse;
+        transform-origin: 93%;
+      }
+    }
+
+    &_open {
+      .header__button-icon {
+        animation-duration: 0.3s;
+        animation-fill-mode: forwards;
+
+        &:first-child {
+          animation-name: top-open;
+        }
+
+        &:nth-child(2) {
+          animation-name: middle-open;
+        }
+
+        &:last-child {
+          animation-name: bottom-open;
+        }
+      }
+    }
+  }
+
+  &__nav {
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(37, 37, 50, 0.95);
+    padding: 6.25rem 1rem 1.875rem;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+    opacity: 0;
+
+    &_open {
+      left: 0;
+      opacity: 1;
+    }
+
+    @media screen and (min-width: 768px) {
+      position: relative;
+      opacity: 1;
+      left: 0;
+      width: 71.5%;
+      padding: 0;
+      background-color: transparent;
+    }
+  }
+}
+
+@keyframes top-open {
+  0% {
+    transform: none;
+    width: 1rem;
+  }
+  100% {
+    transform: rotate(-45deg);
+    width: 1.22rem;
+  }
+}
+@keyframes middle-open {
+  0% {
+    width: 0.66rem;
+  }
+  100% {
+    width: 0;
+  }
+}
+@keyframes bottom-open {
+  0% {
+    transform: none;
+    width: 0.33rem;
+  }
+  100% {
+    transform: rotate(45deg);
+    width: 1.22rem;
+  }
+}
+
+/* Ключевые кадры для закрытия */
+@keyframes top-reverse {
+  0% {
+    transform: rotate(-45deg);
+    width: 1.22rem;
+  }
+  100% {
+    transform: none;
+    width: 1rem;
+  }
+}
+@keyframes middle-reverse {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 0.66rem;
+  }
+}
+@keyframes bottom-reverse {
+  0% {
+    transform: rotate(45deg);
+    width: 1.22rem;
+  }
+  100% {
+    transform: none;
+    width: 0.33rem;
+  }
+}

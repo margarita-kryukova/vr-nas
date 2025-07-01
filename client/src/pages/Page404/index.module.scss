@@ -1,0 +1,127 @@
+@use "sass:math";
+$mobile: math.div(100vw, 430);
+$tablet: math.div(100vw, 768);
+
+.error-page {
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+
+  &__background {
+    position: relative;
+    max-width: var(--width);
+    margin: 0 auto;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      bottom: 0;
+      right: -15%;
+      width: 50%;
+      height: 900px;
+      background: linear-gradient(
+        98.54deg,
+        rgba(28, 196, 249, 0.8) 0.72%,
+        rgba(254, 105, 254, 0.8) 90.69%
+      );
+      filter: blur(85px);
+      border-radius: 50% 50% 40% 40% / 60% 60% 100% 100%;
+      transform: rotate(42deg);
+      @media screen and (min-width: 768px) {
+        bottom: 40px;
+        width: 40%;
+      }
+
+      @media screen and (min-width: 1024px) {
+        bottom: 80px;
+        width: 20%;
+        right: 120px;
+        height: 500px;
+      }
+    }
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    padding: 0 var(--padding) 600 * $mobile;
+    background-image: url("/pages/404/404_mob.png");
+    background-position: bottom 110 * $mobile right 0;
+    background-size: 85%;
+    background-repeat: no-repeat;
+    @media screen and (min-width: 768px) {
+      padding-bottom: 600 * $tablet;
+      background-size: 50%;
+      background-position: bottom 110 * $tablet right 0;
+    }
+
+    @media screen and (min-width: 1024px) {
+      padding: 96px var(--padding);
+      background-image: url("/pages/404/404_desk.png");
+      background-size: 45%;
+      background-position: center right 0;
+    }
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    @media screen and (min-width: 1024px) {
+      width: 55%;
+    }
+  }
+
+  &__header {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  &__title {
+    margin: 0;
+    color: var(--Greyscale-White);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 42px;
+    letter-spacing: -0.16px;
+    @media screen and (min-width: 1024px) {
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 58px;
+      letter-spacing: -0.24px;
+    }
+  }
+
+  &__desc {
+    position: relative;
+    z-index: 10;
+    margin-bottom: 24px;
+  }
+
+  &__group-text {
+    margin: 0;
+    padding: 0 0 0 24px;
+
+    &:last-of-type {
+      margin-bottom: 28px;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    color: var(--Greyscale-White);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 28px;
+  }
+
+  &__btn {
+    width: 168px;
+    z-index: 10;
+  }
+}
